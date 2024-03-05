@@ -1,0 +1,45 @@
+{
+	"expo": {
+		"name": "Freedium ",
+		"slug": "freediumapp",
+		"version": "1.0.0",
+		"orientation": "portrait",
+		"icon": "./assets/icon.png",
+		"userInterfaceStyle": "light",
+		"splash": {
+			"image": "./assets/splash.png",
+			"resizeMode": "cover",
+			"backgroundColor": "#ffffff"
+		},
+		"assetBundlePatterns": ["**/*"],
+		"ios": {
+			"supportsTablet": true,
+			"bundleIdentifier": "com.rxs.freedium"
+		},
+		"android": {
+			"adaptiveIcon": {
+				"foregroundImage": "./assets/adaptive-icon.png",
+				"backgroundColor": "#ffffff"
+			},
+			"permissions": ["android.permission.RECORD_AUDIO"],
+			"package": "com.rxs.freedium"
+		},
+		"web": {
+			"favicon": "./assets/favicon.png"
+		},
+		"plugins": [
+			[
+				"expo-font",
+				{
+					"fonts": ["./assets/fonts/Inter-Black.otf"]
+				}
+			]
+		],
+		"extra": {
+			"eas": {
+				"projectId": "5230824b-c94f-4ba1-87cd-08256bc9ab39"
+			}
+		},
+		"owner": "rxs"
+	}
+}
