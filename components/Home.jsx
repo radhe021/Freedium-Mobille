@@ -11,7 +11,7 @@ const Home = () => {
 		const keyboardDidShowListener = Keyboard.addListener(
 			"keyboardDidShow",
 			() => {
-				setmarginFromTop(400);
+				setmarginFromTop(300);
 			}
 		);
 		const keyboardDidHideListener = Keyboard.addListener(

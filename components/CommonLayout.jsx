@@ -40,13 +40,9 @@ const styles = StyleSheet.create({
 		justifyContent: "center",
 		alignItems: "center",
 		backgroundColor: "#fff",
-		paddingHorizontal: 10,
-	},
-	container: {
-		marginTop: "auto",
 	},
 	scrollViewContent: {
-		marginTop: 10,
+		marginTop: "auto",
 		minHeight: Math.round(windowHeight),
 	},
 });

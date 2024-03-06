@@ -3,7 +3,7 @@
 // /** @format */
 
 import React, { useState } from "react";
-import { View, StyleSheet } from "react-native";
+import { Alert, View, StyleSheet } from "react-native";
 import { Button, Input, Text } from "@ui-kitten/components";
 import { useNavigation } from "@react-navigation/native";
 import mirros from "./../Mirrors.json";
@@ -19,6 +19,10 @@ function InputWithButton() {
 	async function handleSubmit() {
 		console.log(value);
 
+		if (!value) {
+			Alert.alert("Please enter a valid url");
+			return;
+		}
 		const curretURLWithMirros =
 			mirros[Math.floor(Math.random() * mirros.length)] + value;
 
