@@ -3,12 +3,10 @@ import React from "react";
 
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, SafeAreaView, ScrollView, Dimensions } from "react-native";
-
-// import { ApplicationProvider, Layout, Text } from "@ui-kitten/components";
 import { ApplicationProvider, Layout } from "@ui-kitten/components";
 
 import * as eva from "@eva-design/eva";
-import { default as theme } from "../BxTheme.json"; // <-- Import app theme
+import { default as theme } from "../../BxTheme.json"; // <-- Import app theme
 
 const windowHeight = Dimensions.get("window").height;
 
@@ -23,7 +21,7 @@ const CommonLayout = ({ children }) => {
 				style="auto"
 			/>
 			<Layout style={styles.layout} level="1">
-				<SafeAreaView style={[styles.container, { width, height }]}>
+				<SafeAreaView style={ { width, height }}>
 					<ScrollView style={styles.scrollViewContent}>{children}</ScrollView>
 				</SafeAreaView>
 			</Layout>

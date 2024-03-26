@@ -7,6 +7,8 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Home from "./components/Home";
 import RXSWebView from "./components/WebView/RXSWebView";
 
+import NewsLetterForm from "./components/FormComponents/NewsLetterForm.jsx";
+
 const Stack = createNativeStackNavigator();
 
 export default function App() {

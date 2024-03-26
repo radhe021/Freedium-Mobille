@@ -1,13 +1,21 @@
 /** @format */
 import React, { useState, useEffect } from "react";
 
-import { StyleSheet, Text, KeyboardAvoidingView, Keyboard } from "react-native";
-import CommonLayout from "./CommonLayout";
+import {View, StyleSheet, KeyboardAvoidingView, Keyboard } from "react-native";
+import {Text } from "@ui-kitten/components";
+import CommonLayout from "./Common/CommonLayout";
 import InputWithButton from "./FormComponents/InputWithButton";
+import { getCount} from  './../utils/asyncDBUtils'
+
+import SlickCarousel from "./Common/SlickCarousel";
+
 
 const Home = () => {
 	const [marginFromTop, setmarginFromTop] = useState(100);
+	const [totalCount, setTotalCount] = useState(0);
+
 	useEffect(() => {
+		getCount().then(count => setTotalCount(count));
 		const keyboardDidShowListener = Keyboard.addListener(
 			"keyboardDidShow",
 			() => {
@@ -29,14 +37,24 @@ const Home = () => {
 
 	return (
 		<CommonLayout>
-			<KeyboardAvoidingView enabled={true}>
+			<KeyboardAvoidingView enabled={true} >
+				<View style={styles.userStaticsView}> 
 				<Text
 					category="h1"
 					style={[styles.heading, { marginTop: marginFromTop }]}
 				>
 					Knowledge beyond paywalls !{" "}
 				</Text>
+			
+				<Text category="h3" status="primary">
+				Read{" "}
+			</Text>
+			<Text category="h1" status="success">
+				{totalCount}
+			</Text>
+			</View>
 				<InputWithButton />
+				<SlickCarousel/>
 			</KeyboardAvoidingView>
 		</CommonLayout>
 	);
@@ -58,4 +76,8 @@ const styles = StyleSheet.create({
 		borderWidth: 1,
 		borderColor: "red",
 	},
+	userStaticsView:{
+		justifyContent: "center",
+		alignItems: "center",
+	}
 });
