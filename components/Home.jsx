@@ -49,12 +49,13 @@ const Home = () => {
 				<Text category="h3" status="primary">
 				Read{" "}
 			</Text>
-			<Text category="h1" status="success">
+			<Text category="h1" status="success" style={styles.totalCnt}>
 				{totalCount}
 			</Text>
-			</View>
+		
 				<InputWithButton />
 				<SlickCarousel/>
+				</View>
 			</KeyboardAvoidingView>
 		</CommonLayout>
 	);

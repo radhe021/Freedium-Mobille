@@ -7,12 +7,17 @@ import { ApplicationProvider, Layout } from "@ui-kitten/components";
 
 import * as eva from "@eva-design/eva";
 import { default as theme } from "../../BxTheme.json"; // <-- Import app theme
+import { IconRegistry, Text } from '@ui-kitten/components';
+import { EvaIconsPack } from '@ui-kitten/eva-icons';
+
 
 const windowHeight = Dimensions.get("window").height;
 
 const CommonLayout = ({ children }) => {
 	const { width, height } = Dimensions.get("window");
 	return (
+		<>
+		<IconRegistry icons={EvaIconsPack} />
 		<ApplicationProvider {...eva} theme={{ ...eva.light, ...theme }}>
 			<StatusBar
 				animated={true}
@@ -26,6 +31,7 @@ const CommonLayout = ({ children }) => {
 				</SafeAreaView>
 			</Layout>
 		</ApplicationProvider>
+		</>
 	);
 };
 

@@ -8,6 +8,7 @@ import {
   Platform,
 } from 'react-native';
 import {Text } from "@ui-kitten/components";
+import {getAllData} from './../../utils/asyncDBUtils.js'
 
 const ENTRIES1 = [
   {
@@ -42,17 +43,20 @@ const SlickCarousel = props => {
   const [entries, setEntries] = useState([]);
   const carouselRef = useRef(null);
 
-  const goForward = () => {
-    carouselRef.current.snapToNext();
-  };
-
   useEffect(() => {
     setEntries(ENTRIES1);
+    let x = getAllData();
+    console.log(x);
   }, []);
+
+  const onPress = () => {console.log("pressed ");}
+
 
   const renderItem = ({item, index}, parallaxProps) => {
     return (
+      <TouchableOpacity onPress={onPress}>
       <View style={styles.item}>
+       
         <ParallaxImage
           source={{uri: item.illustration}}
           containerStyle={styles.imageContainer}
@@ -63,7 +67,9 @@ const SlickCarousel = props => {
         <Text style={styles.title} numberOfLines={2}>
           {item.title}
         </Text>
+      
       </View>
+      </TouchableOpacity>
     );
   };
 

@@ -2,12 +2,25 @@
 import React from 'react'
 import { ImageBackground , StyleSheet, View,Dimensions } from 'react-native'
 import { Button ,Text, Icon, Input } from '@ui-kitten/components';
+
+
 import { Image } from 'expo-image';
 
+import * as eva from '@eva-design/eva';
+import { EvaIconsPack } from '@ui-kitten/eva-icons';
 import CommonStylea from '../Common/CommonStyles'
 import CommonLayout from '../Common/CommonLayout';
 import LoginBG from '../../assets/loginBG.jpeg'
 const {width,height} = Dimensions.get('window')
+
+
+const GoogleIcon = (props) => (
+  <Icon name='google' {...props} />
+);
+const FacebookIcon = (props) => (
+  <Icon name='facebook' {...props} />
+);
+
 
 export default function Login() {
   const blurhash =
@@ -32,23 +45,7 @@ export default function Login() {
         contentFit="cover"
        
       />
-      <Text category='h1' style={{marginBottom:20}}>Login</Text>
-        <Input
-          placeholder='Email'
-          status='info'
-          value={email}
-          onChangeText={setEmail}
-          style={CommonStylea.inputWithVerticleMargin}
-        />
-        <Input
-          placeholder='Password'
-          status='info'
-          value={password}
-          onChangeText={setPassword}
-          secureTextEntry={secureTextEntry}
-          onToggleSecureTextEntry={setSecureTextEntry}
-          style={CommonStylea.inputWithVerticleMargin}
-        />
+      <Text category='h1' style={{marginBottom:20}}>Continue with</Text>
         <Button
           title='Login'
           size='large'
@@ -57,11 +54,20 @@ export default function Login() {
           onPress={() => {}}
           disabled={disabled}
           style={{width:"88%",...CommonStylea.inputWithVerticleMargin}}
+          accessoryLeft={GoogleIcon}
         >
-          Login
+          Continue with Google
         </Button>
-        <Text>Forgot Password?</Text>
-        <Text>Don't have an account? Sign up</Text> 
+
+        <Button 
+         title='Login with Google'
+         size='large'
+         appearance='outline'
+         status='info'
+         onPress={() => {}}
+         disabled={disabled}
+         style={{width:"88%",...CommonStylea.inputWithVerticleMargin}}
+        accessoryLeft={FacebookIcon}>Login with Facebook</Button>
     </View>
     </CommonLayout>
   )
